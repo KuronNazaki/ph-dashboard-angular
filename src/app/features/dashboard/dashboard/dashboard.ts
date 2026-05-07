@@ -8,6 +8,6 @@ import { ZardButton } from '@ph/ui/button'
 })
 export class Dashboard {
   protected onClick() {
-    alert('This is clicked!')
+    alert("Hi! This alert is safe. Don't worry 🤣")
   }
 }
