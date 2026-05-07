@@ -1,9 +1,14 @@
 @layer ng-icon, theme, base, components, utilities;
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap');
 @import 'tailwindcss';
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-sans: 'Geist', san-serif;
+  --font-mono: 'Geist Mono', monospace;
+}
 
 :root {
   --radius: 0.625rem;
@@ -56,6 +61,7 @@
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.468 0.185 27.87);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);

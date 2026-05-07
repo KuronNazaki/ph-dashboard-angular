@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes } from '@angular/router'
 
 export default <Routes>[
   {
@@ -7,9 +7,8 @@ export default <Routes>[
     children: [
       {
         path: '',
-        loadComponent: () =>
-          import('./dashboard/dashboard').then((m) => m.Dashboard),
+        loadComponent: () => import('./dashboard/dashboard').then((m) => m.Dashboard),
       },
     ],
   },
-];
+]

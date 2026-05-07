@@ -10,20 +10,20 @@ import {
   signal,
   ViewEncapsulation,
   booleanAttribute,
-} from '@angular/core';
+} from '@angular/core'
 
-import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideLoaderCircle } from '@ng-icons/lucide';
-import type { ClassValue } from 'clsx';
+import { NgIcon, provideIcons } from '@ng-icons/core'
+import { lucideLoaderCircle } from '@ng-icons/lucide'
+import type { ClassValue } from 'clsx'
 
-import { mergeClasses } from '@ph/core/utils/merge-classes';
+import { mergeClasses } from '@ph/core/utils/merge-classes'
 
 import {
   buttonVariants,
   type ZardButtonShapeVariants,
   type ZardButtonSizeVariants,
   type ZardButtonTypeVariants,
-} from './button-variants';
+} from './button-variants'
 
 @Component({
   selector: 'z-button, button[z-button], a[z-button]',
@@ -49,62 +49,62 @@ import {
   exportAs: 'zButton',
 })
 export class ZardButton implements OnDestroy {
-  private readonly elementRef = inject(ElementRef<HTMLElement>);
+  private readonly elementRef = inject(ElementRef<HTMLElement>)
 
-  readonly zType = input<ZardButtonTypeVariants>('default');
-  readonly zSize = input<ZardButtonSizeVariants>('default');
-  readonly zShape = input<ZardButtonShapeVariants>('default');
-  readonly class = input<ClassValue>('');
-  readonly zFull = input(false, { transform: booleanAttribute });
-  readonly zLoading = input(false, { transform: booleanAttribute });
-  readonly zDisabled = input(false, { transform: booleanAttribute });
+  readonly zType = input<ZardButtonTypeVariants>('default')
+  readonly zSize = input<ZardButtonSizeVariants>('default')
+  readonly zShape = input<ZardButtonShapeVariants>('default')
+  readonly class = input<ClassValue>('')
+  readonly zFull = input(false, { transform: booleanAttribute })
+  readonly zLoading = input(false, { transform: booleanAttribute })
+  readonly zDisabled = input(false, { transform: booleanAttribute })
 
-  private readonly iconOnlyState = signal(false);
-  readonly iconOnly = this.iconOnlyState.asReadonly();
+  private readonly iconOnlyState = signal(false)
+  readonly iconOnly = this.iconOnlyState.asReadonly()
 
-  private _mutationObserver: MutationObserver | null = null;
+  private _mutationObserver: MutationObserver | null = null
 
   constructor() {
     afterNextRender(() => {
       if (typeof window === 'undefined' || typeof MutationObserver === 'undefined') {
-        return;
+        return
       }
 
       const check = () => {
-        const el = this.elementRef.nativeElement;
-        const hasIcon = el.querySelector('ng-icon') !== null;
-        const children = Array.from<Node>(el.childNodes);
-        const hasText = children.some(node => {
+        const el = this.elementRef.nativeElement
+        const hasIcon = el.querySelector('ng-icon') !== null
+        const children = Array.from<Node>(el.childNodes)
+        const hasText = children.some((node) => {
           if (node.nodeType === 3) {
-            return node.textContent?.trim() !== '';
+            return node.textContent?.trim() !== ''
           }
           if (node.nodeType === 1) {
-            const element = node as HTMLElement;
+            const element = node as HTMLElement
             if (element.matches('ng-icon')) {
-              return false;
+              return false
             }
-            return element.textContent?.trim() !== '';
+            return element.textContent?.trim() !== ''
           }
-          return false;
-        });
+          return false
+        })
 
-        this.iconOnlyState.set(hasIcon && !hasText);
-      };
+        this.iconOnlyState.set(hasIcon && !hasText)
+      }
 
-      check();
-      this._mutationObserver = new MutationObserver(check);
+      check()
+      this._mutationObserver = new MutationObserver(check)
       this._mutationObserver.observe(this.elementRef.nativeElement, {
         childList: true,
         characterData: true,
         subtree: true,
-      });
-    });
+      })
+    })
   }
 
   ngOnDestroy(): void {
     if (this._mutationObserver) {
-      this._mutationObserver.disconnect();
-      this._mutationObserver = null;
+      this._mutationObserver.disconnect()
+      this._mutationObserver = null
     }
   }
 
@@ -120,15 +120,15 @@ export class ZardButton implements OnDestroy {
       }),
       this.class(),
     ),
-  );
+  )
 
   protected readonly isNotInsideOfButtonOrLink = computed(() => {
     // Evaluated once; assumes component parent doesn't change after mount
-    const zardButtonElement = this.elementRef.nativeElement;
+    const zardButtonElement = this.elementRef.nativeElement
     if (zardButtonElement.parentElement) {
-      const { tagName } = zardButtonElement.parentElement;
-      return tagName !== 'BUTTON' && tagName !== 'A';
+      const { tagName } = zardButtonElement.parentElement
+      return tagName !== 'BUTTON' && tagName !== 'A'
     }
-    return true;
-  });
+    return true
+  })
 }
