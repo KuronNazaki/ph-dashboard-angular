@@ -1,4 +1,4 @@
-@let t = todos();
+@let todoList = todos();
 
 <h2 class="text-3xl font-bold">Todo List 📋</h2>
 
@@ -8,9 +8,9 @@
       <z-loader [zSize]="'sm'" />
     </div>
   } @else {
-    <p>There are currently {{ t.length }} {{ t.length < 2 ? 'todo' : 'todos' }}</p>
+    <p>There are currently {{ todoList.length }} {{ todoList.length < 2 ? 'todo' : 'todos' }}</p>
     <ul class="mt-5">
-      @for (todo of t; track todo.id) {
+      @for (todo of todoList; track todo.id) {
         <ph-todo-item [todo]="todo" />
       } @empty {
         <p>There are currently no todo.</p>

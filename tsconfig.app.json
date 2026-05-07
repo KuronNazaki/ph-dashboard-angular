@@ -3,13 +3,14 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "rootDir": "./src",
     "outDir": "./out-tsc/app",
     "types": []
   },
   "include": [
-    "src/**/*.ts"
+    "./src/**/*.ts"
   ],
   "exclude": [
-    "src/**/*.spec.ts"
+    "./src/**/*.spec.ts"
   ]
 }

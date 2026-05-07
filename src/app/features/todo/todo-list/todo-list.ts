@@ -3,8 +3,7 @@ import { TodoService } from '@ph/features/todo/todo-service'
 import { toSignal } from '@angular/core/rxjs-interop'
 import { of, tap } from 'rxjs'
 import { ZardLoader } from '@ph/ui/loader'
-import { TodoItem } from '@ph/features/todo/todo/todo-item'
-import { Todo } from '@ph/features/todo/todo-model'
+import { TodoItem } from '@ph/features/todo/todo-item/todo-item'
 
 @Component({
   selector: 'ph-todo-list',
