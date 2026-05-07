@@ -8,7 +8,11 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./features/dashboard/dashboard.routes'),
+    loadChildren: () => import('./features/dashboard/dashboard-routes'),
+  },
+  {
+    path: 'todo',
+    loadChildren: () => import('./features/todo/todo-routes'),
   },
   {
     path: '**',

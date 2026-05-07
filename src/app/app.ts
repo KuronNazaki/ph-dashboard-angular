@@ -1,14 +1,12 @@
 import { Component, signal } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
+import { RootLayout } from '@ph/layouts/root-layout/root-layout'
 
 @Component({
   selector: 'ph-root',
   template: `
-    <main class="relative w-full h-screen flex flex-col justify-center items-center gap-5">
-      <h2 class="text-2xl font-semibold">Percival Huynh's Dashboard</h2>
-      <router-outlet />
-    </main>
+    <ph-root-layout />
   `,
-  imports: [RouterOutlet],
+  imports: [RootLayout],
 })
 export class App {}
