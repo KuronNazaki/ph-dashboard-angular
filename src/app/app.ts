@@ -1,12 +1,14 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core'
+import { RouterOutlet } from '@angular/router'
 
 @Component({
-  selector: 'app-root',
+  selector: 'ph-root',
+  template: `
+    <main class="relative w-full h-screen flex flex-col justify-center items-center">
+      <h2 class="text-2xl font-semibold">Percival Huynh's Dashboard</h2>
+      <router-outlet />
+    </main>
+  `,
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('ph-dashboard-angular');
-}
+export class App {}

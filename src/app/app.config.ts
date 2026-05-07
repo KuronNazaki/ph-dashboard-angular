@@ -1,11 +1,8 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig } from '@angular/core'
 
-import { routes } from './app.routes';
+import { routes } from './app.routes'
+import { provideCore } from '@ph/core/core'
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes)
-  ]
-};
+  providers: [provideCore({ routes })],
+}
