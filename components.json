@@ -9,9 +9,9 @@
   },
   "baseUrl": "src/app",
   "aliases": {
-    "components": "@ph/ui",
-    "utils": "@ph/core/utils",
-    "core": "@ph/core",
-    "services": "@ph/services"
+    "components": "@/ui",
+    "utils": "@/core/utils",
+    "core": "@/core",
+    "services": "@/services"
   }
 }

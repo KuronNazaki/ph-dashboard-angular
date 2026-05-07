@@ -23,7 +23,7 @@ import {
   type ZardButtonShapeVariants,
   type ZardButtonSizeVariants,
   type ZardButtonTypeVariants,
-} from './button.variants';
+} from './button-variants';
 
 @Component({
   selector: 'z-button, button[z-button], a[z-button]',
@@ -48,7 +48,7 @@ import {
   },
   exportAs: 'zButton',
 })
-export class ZardButtonComponent implements OnDestroy {
+export class ZardButton implements OnDestroy {
   private readonly elementRef = inject(ElementRef<HTMLElement>);
 
   readonly zType = input<ZardButtonTypeVariants>('default');
