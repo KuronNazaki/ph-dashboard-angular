@@ -8,6 +8,7 @@ export default <Routes>[
       {
         path: '',
         loadComponent: () => import('./todo-list/todo-list').then((m) => m.TodoList),
+        title: 'Todo',
       },
     ],
   },

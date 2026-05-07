@@ -8,6 +8,7 @@ export default <Routes>[
       {
         path: '',
         loadComponent: () => import('./dashboard/dashboard').then((m) => m.Dashboard),
+        title: 'Dashboard',
       },
     ],
   },
