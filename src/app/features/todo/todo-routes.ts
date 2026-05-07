@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router'
+import { TodoService } from '@ph/features/todo/todo-service'
 
 export default <Routes>[
   {
     path: '',
-    providers: [],
+    providers: [TodoService],
     children: [
       {
         path: '',

@@ -1,1 +1,20 @@
+@let t = todos();
+
 <h2 class="text-3xl font-bold">Todo List 📋</h2>
+
+<div class="mt-6 ml-2">
+  @if (isFetching()) {
+    <div class="w-fit relative">
+      <z-loader [zSize]="'sm'" />
+    </div>
+  } @else {
+    <p>There are currently {{ t.length }} {{ t.length < 2 ? 'todo' : 'todos' }}</p>
+    <ul class="mt-5">
+      @for (todo of t; track todo.id) {
+        <ph-todo-item [todo]="todo" />
+      } @empty {
+        <p>There are currently no todo.</p>
+      }
+    </ul>
+  }
+</div>
