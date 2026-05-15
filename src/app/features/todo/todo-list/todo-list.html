@@ -9,7 +9,7 @@
     </div>
   } @else {
     <p>There are currently {{ todoList.length }} {{ todoList.length < 2 ? 'todo' : 'todos' }}</p>
-    <ul class="mt-5">
+    <ul class="mt-5 w-3/12">
       @for (todo of todoList; track todo.id) {
         <ph-todo-item [todo]="todo" />
       } @empty {

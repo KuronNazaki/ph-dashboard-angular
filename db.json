@@ -3,27 +3,27 @@
     {
       "id": "5c232365-d89f-474b-b81f-019c38292519",
       "title": "Learn Frontend",
-      "completed": true
+      "isCompleted": true
     },
     {
       "id": "0449d389-00f5-478c-b6d0-c8d833a17053",
       "title": "Learn Angular",
-      "completed": true
+      "isCompleted": true
     },
     {
       "id": "4d917235-54da-4659-961b-bf03acbd24bd",
       "title": "Learn Signals",
-      "completed": false
+      "isCompleted": true
     },
     {
       "id": "f3d4d2d6-5086-438c-b58d-a2529091bc6b",
-      "title": "Learn State Management",
-      "completed": false
+      "title": "Learn Something",
+      "isCompleted": true
     },
     {
       "id": "718a0312-790c-4a32-9688-afa4ca937743",
       "title": "Learn NgRx",
-      "completed": false
+      "isCompleted": true
     }
   ]
 }

@@ -1,7 +1,31 @@
 <li
-  class="flex gap-2 items-center py-2 px-4 cursor-pointer rounded-lg transition-colors hover:bg-accent"
-  (click)="toggle()"
+  class="group w-full overflow-hidden flex gap-2 justify-between items-center py-2 px-4 cursor-pointer rounded-lg transition-colors hover:bg-accent"
+  (click)="onToggleCompletion()"
 >
-  <z-checkbox [(ngModel)]="completed" />
-  <span [class]="textStyle()">{{ todo().title }}</span>
+  <div class="flex grow">
+    @if (!isEditMode()) {
+      <div class="flex items-center relative overflow-hidden w-0 group-hover:w-4 transition-all">
+        <z-checkbox [formField]="todoItemForm.isCompleted" />
+      </div>
+      <span [class]="titleStyle()">{{ todoItemForm.title().value() }}</span>
+    } @else {
+      <input
+        z-input
+        zBorderless
+        placeholder="Title"
+        [formField]="todoItemForm.title"
+        class="w-full ml-2"
+        (clickOutside)="onUpdate($event)"
+        (keydown.enter)="onUpdate($event)"
+      />
+    }
+  </div>
+  <z-button
+    class="transition-all translate-x-[130%] group-hover:translate-x-0 hover:bg-white ease-out"
+    [zSize]="'icon'"
+    [zType]="'ghost'"
+    (click)="onToggleEditMode($event)"
+  >
+    <svg lucidePencil></svg>
+  </z-button>
 </li>
